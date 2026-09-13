@@ -1,11 +1,11 @@
-# 🤖 Autonomous Customer Resolution Agent (Premium Edition)
+# Autonomous Customer Resolution Agent (Premium Edition)
 
 **Agentic AI Hackathon — Tech Zephyr 4.0 | IIT Bhubaneswar**
 **Track 3: Smart Automation | Problem Statement 5**
 
 ---
 
-## 📌 Problem & Solution Brief
+##  Problem & Solution Brief
 
 ### Problem Statement
 Customer support in e-commerce is a high-friction, high-cost workflow. Traditional chatbots follow static scripts and fail when real-world constraints (inventory shortages, policy violations, fraudulent patterns) block the "happy path." They cannot reason, adapt, or act autonomously — they simply give up and escalate everything to humans.
@@ -36,7 +36,7 @@ The LLM receives a free-text customer message, dynamically decides which enterpr
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -128,7 +128,7 @@ The LLM receives a free-text customer message, dynamically decides which enterpr
 
 ---
 
-## 🚀 Deployment / Runnable Version
+##  Deployment / Runnable Version
 
 ### Live Deployed Application
 > **🌐 [https://agentic-support-bot.vercel.app](https://agentic-support-bot.vercel.app)**
@@ -162,7 +162,7 @@ npm run dev
 
 ---
 
-## 📁 Source Code Structure
+##  Source Code Structure
 
 ```
 agentic-support-bot/
@@ -205,7 +205,7 @@ agentic-support-bot/
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 We followed Test-Driven Development (TDD) for the core business logic:
 
@@ -219,7 +219,7 @@ npm run test
 
 ---
 
-## 🎬 Demo Video Scenarios
+##  Demo Video Scenarios
 
 The demo video shows one complete workflow for each scenario:
 
@@ -231,7 +231,7 @@ The demo video shows one complete workflow for each scenario:
 
 ---
 
-## 🛡️ Safety & Guardrails
+##  Safety & Guardrails
 
 | Feature | Implementation |
 |---------|---------------|
@@ -245,7 +245,7 @@ The demo video shows one complete workflow for each scenario:
 
 ---
 
-## 🔧 Dependencies
+##  Dependencies
 
 | Package | Purpose |
 |---------|---------|
@@ -257,7 +257,7 @@ The demo video shows one complete workflow for each scenario:
 
 ---
 
-## 📝 Environment Configuration
+##  Environment Configuration
 
 | Variable | Required | Description |
 |----------|----------|-------------|
@@ -268,4 +268,4 @@ Create a `.env.local` file in the project root:
 OPENROUTER_API_KEY=your_key_here
 ```
 
-> ⚠️ Never commit `.env.local` to version control. It is already safely isolated in `.gitignore`.
+>  Never commit `.env.local` to version control. It is already safely isolated in `.gitignore`.

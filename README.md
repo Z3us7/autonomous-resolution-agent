@@ -140,8 +140,8 @@ If you prefer to run locally:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/agentic-support-bot.git
-cd agentic-support-bot
+git clone https://github.com/Z3us7/autonomous-resolution-agent.git
+cd autonomous-resolution-agent
 
 # 2. Install dependencies
 npm install --legacy-peer-deps

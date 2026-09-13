@@ -1,4 +1,4 @@
-# Autonomous Customer Resolution Agent (Premium Edition)
+# Autonomous Customer Resolution Agent
 
 **Agentic AI Hackathon — Tech Zephyr 4.0 | IIT Bhubaneswar**
 **Track 3: Smart Automation | Problem Statement 5**

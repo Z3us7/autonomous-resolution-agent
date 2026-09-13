@@ -131,7 +131,7 @@ The LLM receives a free-text customer message, dynamically decides which enterpr
 ##  Deployment / Runnable Version
 
 ### Live Deployed Application
-> **🌐 [https://agentic-support-bot.vercel.app](https://agentic-support-bot.vercel.app)**
+> **🌐 [https://autonomous-resolution-agent-rho.vercel.app/](https://autonomous-resolution-agent-rho.vercel.app/)**
 
 Judges can interact with the system directly in their browser. No setup required.
 

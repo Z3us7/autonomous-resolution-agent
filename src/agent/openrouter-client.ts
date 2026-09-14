@@ -30,13 +30,18 @@ export class OpenRouterClient {
 
     const url = "https://openrouter.ai/api/v1/chat/completions";
     
-    // Fallback list of free models in case of shared-pool 429s or 404s
+    // Best free models for tool calling, ordered by capability + speed.
+    // openrouter/auto is first — it's OpenRouter's own intelligent free router
+    // that automatically picks the best available free model with tool support.
     const fallbackModels = [
-      "google/gemma-4-31b-it:free",
-      "google/gemma-4-26b-a4b-it:free",
-      "meta-llama/llama-3.1-8b-instruct:free",
-      "nvidia/nemotron-3.5-lightning:free",
-      "google/gemma-2-9b-it:free"
+      "openrouter/auto",                        // OpenRouter's own smart free router (best option)
+      "qwen/qwen3-coder:free",                  // Qwen3 Coder — best free model for agentic tool calling
+      "google/gemma-4-31b-it:free",             // Gemma 31B — strong at following tool schemas
+      "qwen/qwen3-30b-a3b:free",               // Qwen3 30B MoE — fast & smart
+      "microsoft/mai-ds-r1:free",               // Microsoft MAI reasoning model
+      "meta-llama/llama-3.3-70b-instruct:free", // LLaMA 3.3 70B — very capable
+      "google/gemma-4-26b-a4b-it:free",         // Gemma 26B fallback
+      "meta-llama/llama-3.1-8b-instruct:free",  // Fast lightweight fallback
     ];
 
     let lastError = null;
@@ -55,7 +60,7 @@ export class OpenRouterClient {
           headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${this.apiKey}`,
-            "HTTP-Referer": "http://localhost:3000",
+            "HTTP-Referer": "https://autonomous-resolution-agent-rho.vercel.app",
             "X-Title": "Autonomous Support Agent"
           },
           body: JSON.stringify(body)
@@ -63,8 +68,8 @@ export class OpenRouterClient {
 
         if (!res.ok) {
           const errorText = await res.text();
-          // If it's a 429 or 404, we continue to the next model
-          if (res.status === 429 || res.status === 404 || res.status === 502) {
+          // On 429 (rate limit), 404 (model gone), or 502 (upstream error), try next model
+          if (res.status === 429 || res.status === 404 || res.status === 502 || res.status === 503) {
              lastError = `Model ${model} failed with ${res.status}: ${errorText}`;
              continue;
           }
@@ -75,9 +80,11 @@ export class OpenRouterClient {
         return data.choices[0].message;
       } catch (e: any) {
          lastError = e.message;
+         // If it's a network error, try the next model
+         continue;
       }
     }
 
-    throw new Error(`All free models failed. Last error: ${lastError}`);
+    throw new Error(`All models failed. Last error: ${lastError}`);
   }
 }

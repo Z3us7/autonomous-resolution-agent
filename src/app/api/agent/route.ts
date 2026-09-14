@@ -2,6 +2,8 @@ import { NextRequest } from "next/server";
 import { AgentController } from "../../../agent/agent-controller";
 import { ActionType } from "../../../types/models/action";
 
+export const maxDuration = 60; // Extend Vercel timeout to 60 seconds for Hobby plan
+
 // In-memory rate limiter for hackathon demo (prevents abuse/spam)
 const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 const RATE_LIMIT_WINDOW_MS = 60000; // 1 minute

@@ -32,10 +32,10 @@ export class OpenRouterClient {
     
     // Fallback list of free models in case of shared-pool 429s or 404s
     const fallbackModels = [
-      "google/gemma-4-31b-it:free",
-      "google/gemma-4-26b-a4b-it:free",
+      "meta-llama/llama-3.1-8b-instruct:free",
       "nvidia/nemotron-3.5-lightning:free",
-      "liquid/lfm-2.5-2.6b:free",
+      "google/gemma-2-9b-it:free",
+      "google/gemma-4-31b-it:free",
       "poolside/laguna-s-2.1:free"
     ];
 
